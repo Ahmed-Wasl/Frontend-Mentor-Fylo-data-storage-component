@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+/* Start Variables */
+:root {
+  --gradient-color: linear-gradient(0.4turn, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+  --first-color: hsl(228, 56%, 26%);
+  --second-color: hsl(229, 57%, 11%);
+  --third-color: hsl(229, 7%, 55%);
+  --forth-color: hsl(243, 100%, 93%);
+  --white-color: white;
+}
+/* End Variables */
+/* Start Global Rules */
+:is(*, *::before, *::after) {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: var(--second-color);
+  background-image: url(img/bg-desktop.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+  font-family: "Raleway", sans-serif;
+}
+.flex {
+  display: flex;
+}
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+ul {
+  list-style: none;
+}
+a {
+  cursor: pointer;
+}
+/* End Global Rules */
+
+.card-component {
+  column-gap: 40px;
+  width: 50%;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.card-component .card-component__card {
+  background-color: var(--first-color);
+  border-radius: 11px;
+  padding: 40px;
+}
+.card-component .card-component__card--links {
+  height: 220px;
+  /* width: 370px; */
+  width: 40%;
+  padding-inline: 40px;
+  border-radius: 15px 127px 15px 15px / 15px 115px 15px 15px;
+}
+.card-component .card-component__card--links ul.card-component__card-list {
+  align-items: flex-end;
+  column-gap: 15px;
+}
+.card-component
+  .card-component__card--links
+  ul.card-component__card-list
+  li.card-component__card-list-item {
+  height: 50px;
+  width: 50px;
+  background-color: var(--second-color);
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.card-component .card-component__card--storage-space {
+  height: 150px;
+  width: 60%;
+}
+.card-component
+  .card-component__card--storage-space
+  p.card-component__card-storage-info {
+  color: var(--forth-color);
+  margin-bottom: 14px;
+  font-size: 14px;
+  font-weight: 400;
+}
+.card-component
+  .card-component__card--storage-space
+  p.card-component__card-storage-info
+  span.card-component__card-storage-info-highlight {
+  color: var(--white-color);
+  font-weight: 600;
+}
+.card-component
+  .card-component__card--storage-space
+  p.card-component__card-storage-left {
+  top: -30px;
+  right: 40px;
+  color: var(--third-color);
+  background-color: var(--white-color);
+  padding: 11px 17px;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 10px;
+}
+.card-component
+  .card-component__card--storage-space
+  p.card-component__card-storage-left::after {
+  position: absolute;
+  content: "";
+  bottom: -20px;
+  right: 0;
+  border-color: transparent var(--white-color) transparent transparent;
+  border-width: 20px;
+  border-style: solid;
+}
+.card-component
+  .card-component__card--storage-space
+  p.card-component__card-storage-left
+  span.card-component__card-storage-left-highlight {
+  color: var(--second-color);
+  font-size: 35px;
+  font-weight: 700;
+  margin: -5px 10px 0 0;
+}
+.card-component
+  .card-component__card--storage-space
+  .card-component__card-storage-progress-container::after {
+    position: absolute;
+    content: '';
+    top: 2px;
+    right: 95px;
+    width: 12px;
+    height: 12px;
+    background-color: var(--white-color);
+    border-radius: 50%;
+  }
+.card-component
+  .card-component__card--storage-space
+  .card-component__card-storage-progress-container
+  progress.card-component__card-progress {
+  width: 100%;
+  background-color: var(--second-color);
+  border-radius: 7px;
+}
+.card-component
+  .card-component__card--storage-space
+  .card-component__card-storage-progress-container
+  progress.card-component__card-progress::-webkit-progress-bar {
+  background-color: var(--second-color);
+  border-radius: 7px;
+}
+.card-component
+  .card-component__card--storage-space
+  .card-component__card-storage-progress-container
+  progress.card-component__card-progress::-webkit-progress-value {
+  background: var(--gradient-color);
+  border-radius: 7px;
+}
+.card-component
+  .card-component__card--storage-space
+  .card-component__card-storage-progress-container
+  progress.card-component__card-progress::-webkit-progress-value {
+  background: var(--gradient-color);
+  border-radius: 7px;
+}
+.card-component
+  .card-component__card--storage-space
+  .card-component__card-storage-limit {
+  justify-content: space-between;
+  color: var(--white-color);
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 375px) {
+  body {
+    background-image: url(img/bg-mobile.png);
+    background-size: cover;
+  }
+  .card-component {
+    flex-direction: column;
+    row-gap: 20px;
+    width: 90%;
+
+  }
+  .card-component .card-component__card {
+    width: 100%;
+  }
+  .card-component
+  .card-component__card--storage-space
+  p.card-component__card-storage-left {
+    top: 65%;
+    right: 51%;
+    transform: translate(50%, 50%);
+  }
+  .card-component
+  .card-component__card--storage-space
+  p.card-component__card-storage-left::after {
+    display: none;
+  }
+
+  .card-component
+  .card-component__card--storage-space
+  .card-component__card-storage-progress-container::after {
+    top: 1px;
+    right: 53px;
+  }
+}
